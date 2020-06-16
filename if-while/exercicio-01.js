@@ -9,27 +9,32 @@ precisem fazer uso do recurso “user.questionInt()” que transforma o conteúd
 input do usuário de string para inteiro.
 */
 
-var rs = require('readline-sync');
-
-var n1 = rs.questionInt('Digite o primeiro número: ');
-
-var n2 = rs.questionInt('Digite o segundo número: ');
-
-var i = 1;
-
-
-while (i <= n2 && i ) {
-    if (n1 % 5 == 0) {
-        console.log('Ping');
-        if (n2 % 7 == 0) {
-            console.log('Pong');
-
-        } 
-        i++;
-    } else if(n1 % 5 == 0 && n2 % 7 == 0){
-        console.log('Ping Pong')
-    }else{
-        console.log('Ping Pong');
+const rs = require('readline-sync');
+var num = rs.question('Digite um número entre 1 e 100: ')
+var num2 = rs.question('Digite outo número entre 1 e 100: ')
+if ((num >= 1 && num <= 100) && (num2 >= 1 && num2 <= 100)) {
+  console.log('números entre 1 e 100');
+  var cont = 0;
+  var maior = 0;
+  if (num > num2) {
+    cont = num2;
+    maior = num;
+  } else {
+    cont = num;
+    maior = num2;
+  }
+  while (cont <= maior) {
+    if( (cont % 7 == 0) && (cont % 5 == 0) ) {
+      console.log("Ping Pong");    
+    }else if (cont % 7 == 0) {
+      console.log("Ping");
+    }else if(cont % 5 == 0) {
+      console.log("Pong");
+    }else {
+      console.log(cont);
     }
-    
+    cont++;
+  }
+} else {
+  console.log('Numeros inválidos, digite números entre 1 e 100');
 }
