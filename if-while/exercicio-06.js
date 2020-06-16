@@ -7,24 +7,17 @@ que foram cadastrados no total.
 
 var rs = require('readline-sync');
 
-var total;
+var total = 0;
 
-var idade = 0;
+var nome = '';
+var idade;
 
-vartotal = 0;
+while (nome != 'Final') {
 
-var nome = '';//rs.question('Insira qualquer nome. Quando quiser parar, digite "Final": ');
-
-while(nome != "Final"){
     nome = rs.question('Insira qualquer nome. Quando quiser parar, digite "Final": ');
-    idade = rs.questionInt('Digite a idade da pessoa acima: ');
-    if(nome == "Final"){
-       break;
-
-    }else{
-        total = (`${nome}  ${idade}`);
+    if (nome != 'Final') {
+        idade = rs.questionInt('Digite a idade da pessoa acima: ');
+        total++;
     }
-    
 }
-console.log(total );
-// console.log(`${nomes}, ${idades} anos.`);
+console.log(total);
