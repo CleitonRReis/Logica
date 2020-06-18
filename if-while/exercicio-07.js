@@ -8,13 +8,31 @@ A cada saque ou depósito o valor do saldo deve ser atualizado.
 var rs = require('readline-sync');
 
 var saldo = 0.00;
+var deposito;
+var saque;
 
-var pergunta = '';//rs.question('Digite "a" para ver o saldo, "b" para saque ou "c" para efetuar um depósito: ');
+var pergunta = ''; 
 
-while(saldo != "a" && saldo != "b" && saldo != "c"){
-    pergunta = rs.question('Digite "a" para ver o saldo, "b" para saque ou "c" para efetuar um depósito: ');
+while(pergunta != "D"){
+     
+    pergunta = rs.question('Digite "A" para ver o saldo, "B" para saque, "C" para efetuar um depósito ou "D" para sair: ').toUpperCase();
 
-    if(pergunta == "a"){
-        console.log(`Seu saldo é: ${saldo}`)
+if(pergunta == "A"){
+        console.log(`Seu saldo é: ${saldo}`);
+    }if(pergunta == "B"){
+        saque = rs.question(`Informe o valor do saque: `); 
+        
+        saldo = saldo - saque;
+
+        console.log(`Seu saldo é: ${saldo}`);
+
+    }if(pergunta == "C"){
+        deposito = rs.questionFloat(`Informe o valor do depósito: `);
+        
+        saldo = deposito + saldo;
+
+        console.log(`Saldo atual é: ${saldo}`);
     }
+
 }
+console.log(`Obrigado! Até mais!`);
