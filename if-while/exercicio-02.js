@@ -19,17 +19,65 @@ EX.:
 */
 
 var rs = require('readline-sync');
-
 var numero = rs.questionInt('\nInsira o número 50 para ver os ímpares, pares e primos: ');
-
 var i = 1;
-
+var cont = 2;
+var ehPrimo = true;
 while (i <= numero) {
-    if (i % 2 == 1) {
-        console.log(`\n${i} esse número é ímpar!`);
+    while (cont < i) {
+        if (i % cont == 0) {
+            ehPrimo = false;
+            break;
+        }else {
+            ehPrimo = true;
+        }
+        cont++;
     }
-    else {
-        console.log(`\n${i} esse número é par!`);
+    if (i % 2 == 0){
+        if (ehPrimo) {
+            console.log(`${i} é par e primo`);
+        } else {
+            console.log(`${i} par`);
+        }
+    } else {
+        if (ehPrimo) {
+            console.log(`${i} eh impar e primo`); 
+        } else {
+            console.log(`${i} impar`);
+        }
     }
-    i++;
+    ehPrimo = true
+    cont = 2
+    i++; 
+}var rs = require('readline-sync');
+var numero = rs.questionInt('\nInsira o número 50 para ver os ímpares, pares e primos: ');
+var i = 1;
+var cont = 2;
+var ehPrimo = true;
+while (i <= numero) {
+    while (cont < i) {
+        if (i % cont == 0) {
+            ehPrimo = false;
+            break;
+        }else {
+            ehPrimo = true;
+        }
+        cont++;
+    }
+    if (i % 2 == 0){
+        if (ehPrimo) {
+            console.log(`${i} é par e primo`);
+        } else {
+            console.log(`${i} par`);
+        }
+    } else {
+        if (ehPrimo) {
+            console.log(`${i} eh impar e primo`); 
+        } else {
+            console.log(`${i} impar`);
+        }
+    }
+    ehPrimo = true
+    cont = 2
+    i++; 
 }
