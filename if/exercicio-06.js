@@ -1,24 +1,31 @@
 var rs = require('readline-sync')
 
-var sexo = 0;
-var n1 = 0;
-var res = 0;
-var alt = 0; 
+var nome;
+var sexo;
+var idade;
+var altura;
+var peso;
 
-var sexo = rs.question('m = Masculino ou f = Feminino: ');
+console.log('\nPara saber se seu imc está ok, insira os dados abaixo: ');
 
-res = (62.1 * alt - 44.7);
+nome = rs.question(`\nDigite seu nome: `);
 
-if(sexo == 'f'){
-    console.log('Para saber seu peso ideal, insira os dados abaixo: ');
-    var alt = rs.questionFloat('Digite sua altura, por favor: ');
-    if(isNaN(res)){}
-    // console.log((62.1 * altura - 44.7))
-    console.log(`Seu peso ideal é: ${res}`);
-    
- }else{
-     console.log('Para saber seu peso ideal, insira os dados abaixo: ');
-     var alt = rs.questionFloat('Digite sua altura, por favor: ');
-    //  if(isNaN(res)){}
-     console.log('Seu peso ideal é: ') + 72.7 * altura - 44.7;
+sexo = rs.question('\nInforme seu sexo. M = Masculino / F = Feminino: ');
+
+idade = rs.questionInt('\nDigite sua idade, por favor: ');
+
+altura = rs.questionFloat(`\n${nome}, informe a sua altura, por favor: `);
+
+peso = rs.questionFloat(`\n${nome}, informe seu peso, por favor: `);
+
+var imc = peso / (altura * altura);
+
+if(imc < 18.5){
+    console.log(`\nATENÇÃO: MAGREZA. ${nome}, sinto muito, seu IMC é de ${imc.toFixed(2)} kg/m2 e você precisa ganhar peso!\n`);
+}else if(imc < 24.9){
+    console.log(`\nNORMAL. ${nome}, parabéns, seu IMC é ${imc.toFixed(2)} kg/m2 e você está dentro do peso adequado!\n`);
+}else if(imc <= 30){
+    console.log(`\nATENÇÃO: SOBREPESO. ${nome}, sinto muito, mas o seu IMC é de ${imc.toFixed(2)} kg/m2, por isso você está acima do peso e deveria emagrecer!\n`);
+}else{
+    console.log(`\nATENÇÃO: OBESIDADE. ${nome}, sinto muito, mas o seu IMC é de ${imc.toFixed(2)} kg/m2, por isso você está acima do peso e deveria emagrecer!\n`);
 }
