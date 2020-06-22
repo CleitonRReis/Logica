@@ -18,7 +18,7 @@ Troco : 1.50 $
 
 const rs = require('readline-sync');
 
-var produtos = rs.questionInt('\nInforme o número de produtos adquiridos: ');
+var quantidadeProdutos = rs.questionInt('\nInforme o número de produtos adquiridos: ');
 
 console.log('\n')
 
@@ -30,18 +30,24 @@ var saldo = 50;
 
 var i = 0;
 
+cont = 0;
+
 var total = 0.00;
 
-while(i < produtos){
-    valorProdutos = rs.questionFloat('Informe os valores dos produtos: ');
+while(i < quantidadeProdutos){
+    valorProdutos = rs.questionFloat(`Informe o valor do produto ${i+1}: `);
     vetor.push(valorProdutos);
     total = total +  valorProdutos;
     
     i++;
 }
-    vetor.map(function(vetor){
-        console.log(`\nValor do produto: ${vetor}`);
-    });
+
+while(cont < vetor.length){
+    
+    console.log(`Valor do produto ${cont+1}: ${vetor[cont]}`);
+    
+    cont++;
+}
 
 console.log(`\nValor total a ser pago: ${total.toFixed(2)} reais.`);
 
