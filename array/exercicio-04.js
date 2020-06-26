@@ -34,11 +34,10 @@ for(var i = 0; i <= 4; i++){
 
 for(var i = 0; i < jog2.length; i++){
     var n2 = jog2[i];
-    if(jog1.includes(n1)){
+    if(jog1.includes(n2)){
         var iguais = n2;
     }else{
         diferentes.push(n2);
     }
 }
-
 console.log(diferentes);
