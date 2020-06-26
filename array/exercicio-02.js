@@ -12,37 +12,57 @@ Algoritmo imprime :
 
 const rs = require('readline-sync');
 
-var i = 0;
-
-var vetor = []; 
-
 var user1 = 0;
 
 var user2 = 0;
 
+var i = 0;
+
+var cont = 0;
+
+var vetor1 = [];
+
+var vetor2 = [];
+
+var contVetor1 = 0;
+
 var iguais = [];
 
-var numeroDeValores = rs.questionInt('Informe quantos valores vocês desejam inserir: ');
+console.log(`\n================== JOGADOR 1 ==================\n`);
 
-while(i < numeroDeValores){
+while (i < 5) {
 
-    user1 = rs.questionInt('Informe alguns valores usuário 1: ');
-
-    //   vetor.push(user1);
-
-    user2 = rs.questionInt('Informe alguns valores usuário 2: ');
-
-    //   vetor.push(user2);
-
-    user1.length == user2.length || user2.length == user1.length
-
-    iguais = (`${user2}, `) + (`${user2}`);
-        
-    vetor.push(iguais);
-    
+    user1 = rs.questionInt(`Informe pelo menos 5 números. Número: ${i + 1}: `);
+    vetor1.push(user1)
     i++;
-
 }
 
-console.log(`Os valores iguais são: ${iguais}`);
-console.log(vetor);
+console.log(`\n================== JOGADOR 2 ==================\n`);
+
+while (cont < 5) {
+    user2 = rs.questionInt(`Informe pelo menos 5 números. Número: ${cont + 1}: `);
+    vetor2.push(user2)
+    cont++;
+}
+
+//vetor1 = [0,2,1] - vetor2 = [3,5,0,1]
+//vetor1[0] == vetor2[0]
+//vetor[0] == vetor2[1]
+//vetor[0] == vetor2[2]
+
+
+
+while (contVetor1 < vetor1.length) {
+    var contVetor2 = 0;
+    while (contVetor2 < vetor2.length) {
+        if (vetor1[contVetor1] == vetor2[contVetor2]) {
+            iguais.push(vetor1[contVetor1]);
+            break;
+
+        }
+        contVetor2++;
+    }
+
+    contVetor1++;
+}
+console.log(`\nOs valores iguais são: ${iguais}\n`);
