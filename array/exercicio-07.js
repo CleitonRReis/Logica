@@ -8,7 +8,7 @@ EX : saúde
 
 const rs = require('readline-sync');
 
-let palavra = rs.question('Por favor, insira uma palavra para saber: ');
+let palavra = rs.question('Por favor, insira uma palavra ou frase para saber quantas vogais e consoantes há nela: ');
 
 var vogais = ['a', 'e', 'i', 'o', 'u'];
 
